@@ -16,19 +16,20 @@
     "removeComments": true,
     "incremental": false,
     "noUncheckedIndexedAccess": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "sourceMap": false,
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/@types"
+    ],
   },
   "include": [
-    "./**/**/*.ts"
+    "./**/*.ts"
   ],
   "exclude": [
     "node_modules",
