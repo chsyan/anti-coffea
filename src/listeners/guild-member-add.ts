@@ -1,15 +1,9 @@
 import { Client, GuildMember } from 'discord.js';
+import handleMember from '../handle-member';
 
-const handleFetchMember = (member: GuildMember, nickname: string): void => {
-  member.setNickname(nickname);
-  console.log(member?.user.username);
-}
-
-const guildMemberAddListener = (client: Client): void => {
+const guildMemberAddListener = async (client: Client) => {
   client.on('guildMemberAdd', (member: GuildMember) => {
-    if (member.id === '437825584144580619') {
-      member.guild.members.guild.members.fetch(member.id).then(m => handleFetchMember(m, '23/100 Waifu IRL')).catch();
-    }
+    handleMember(member);
   });
 };
 
