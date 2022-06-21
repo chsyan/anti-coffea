@@ -1,7 +1,10 @@
 # Anti Coffea
-Auto nickname users in a guild.
+Enforce guild member nicknames in guilds. 
+This was made to thwart the rebellious actions of user `Coffea` rejoining the server to reset the assigned nickname.
+[Discord.js](https://github.com/discordjs/discord.js) is used for interacting with the [Discord API](https://github.com/discord/discord-api-docs).
+The bot only updates when a guild member joins or is updated. It then checks the `names.json` config file for name key and nickname value pairs, updating the nickname of a guild member if necessary.
 
-# Discord Application Setup
+## Discord Application Setup
 A discord bot token is required to setup the bot and communicate with the Discord API.
 These can be obtained by setting up an application in the [Discord developer portal](https://discord.com/developers/applications).
 
@@ -21,14 +24,14 @@ These can be obtained by setting up an application in the [Discord developer por
 * Follow the on screen instructions and add it to your server
 
 
-# Installation
+## Installation
 Clone the repository and install dependencies
 ```
 git clone https://github.com/anti-coffea
 cd anti-coffea
 npm install
 ```
-## Environment
+### Environment
 Create a `.env` file in the root of the project (or copy paste the `.env.example` to `.env`).
 The file contents should be
 ```
@@ -36,12 +39,12 @@ DISCORD_TOKEN=<YOUR_TOKEN_HERE>
 ```
 Where `<YOUR_TOKEN_HERE>` is the token that you should have generated earlier.
 
-## Running
+### Running
 Refer to scripts section in `package.json` to view run options.
 If [PM2](https://pm2.keymetrics.io/) is installed, then using `npm run pm2:start` is useful for daemonizing the process.
 `pm2 monit` can then be used to monitor the process.
 
-# Configuration
+## Configuration
 The `names.json` file contains a list of key:value pairs in JSON. The format should follow
 ```
 {
