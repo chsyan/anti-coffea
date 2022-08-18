@@ -1,21 +1,28 @@
-import { GuildMember } from 'discord.js';
-import log from './log';
+import { GuildMember } from "discord.js";
+import log from "./log";
 
-const handleMember = async (member: GuildMember) => {
+const handleMember = async (member: GuildMember): Promise<boolean> => {
   try {
-    const names: JSON = require('../names.json');
+    const names: JSON = require("../names.json");
     if (member.moderatable) {
       for (const [key, value] of Object.entries(names)) {
         const nickname = member.nickname;
         if (key === member.id && nickname !== value) {
           console.log("Matched");
           await member.setNickname(value);
-          log('Set nickname for ' + member.user.username + ' from ' + nickname + ' to ' + value);
-          break;
+          log(
+            "Set nickname for " +
+              member.user.username +
+              " from " +
+              nickname +
+              " to " +
+              value
+          );
+          return true;
         }
       }
     } else {
-      log(member.user.username + ' is not moderatable');
+      log(member.user.username + " is not moderatable");
     }
   } catch (e: unknown) {
     if (typeof e === "string") {
@@ -24,6 +31,7 @@ const handleMember = async (member: GuildMember) => {
       log(e.message);
     }
   }
+  return false;
 };
 
 export default handleMember;
