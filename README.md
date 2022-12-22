@@ -27,7 +27,7 @@ These can be obtained by setting up an application in the [Discord developer por
 ## Installation
 Clone the repository and install dependencies
 ```
-git clone https://github.com/anti-coffea
+git clone https://github.com/chsyan/anti-coffea
 cd anti-coffea
 npm install
 ```
